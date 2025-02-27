@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotechnika Club HBTU</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&family=Sigmar&display=swap" rel="stylesheet">
+</head>
+<body class=" bg-white-800 text-white font-sans">
+    <div id="header"></div>
+    <!-- <div class="w-[100%] flex justify-center items-center">
+        <img src="images/clubImage.png" alt="Centered Image" class="w-full h-auto object-cover">
+    </div> -->
+    <div class=" w-[90%] h-[90%] w-full overflow-hidden pt-0 rounded-lg shadow-lg">
+        <!-- Image Container -->
+        <div id="slider" class="flex transition-transform duration-700 ease-in-out">
+            <img src="images/intro.png" class="w-[90%] h-[90%] object-cover" alt="Slide 0">
+            <img src="images/clubImage.png" class="w-[90%] h-[90%] object-cover" alt="Slide 1">
+            <img src="images/clubImage2.jpg" class="w-[90%] h-[90%] object-cover" alt="Slide 2">
+            <img src="images/clubImage3.png" class="w-[90%] h-[90%] object-cover" alt="Slide 3">
+        </div>
+
+        <!-- Left Button -->
+        <button id="prev" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
+            ❮
+        </button>
+
+        <!-- Right Button -->
+        <button id="next" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
+            ❯
+        </button>
+    </div>
+    <!-- <div class="relative w-[95%] max-w-4xl overflow-hidden rounded-lg shadow-lg">
+        
+        <div id="slider" class="flex w-full transition-transform duration-700 ease-in-out">
+            <img src="images/image1.jpg" class="w-full h-[500px] object-cover flex-shrink-0" alt="Slide 1">
+            <img src="images/image2.jpg" class="w-full h-[500px] object-cover flex-shrink-0" alt="Slide 2">
+            <img src="images/image3.jpg" class="w-full h-[500px] object-cover flex-shrink-0" alt="Slide 3">
+        </div>
+
+
+        <button id="prev" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
+            ❮
+        </button>
+
+
+        <button id="next" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
+            ❯
+        </button> -->
+    </div>
+
+   
+    <div class="bg-gradient-to-r from-green-200 to-purple-400 text-black bg-white grid grid-cols-1 sm:grid-cols-2 items-center justify-between p-10 h-full w-full pt-[160px]">
+        <div class="max-w-lg" id="dynamic-content">
+            <h1 class="text-4xl font-bold text-blue-900 text-center">Our Motto<br>"innovate, Integrate, Elevate"</h1>
+            <p class="mt-4 text-lg text-center text-justify text-gray-700">Biotechnika Club HBTU, launched in 2025, upholds the motto "Innovate, Integrate, Elevate," symbolizing our commitment to scientific innovation, interdisciplinary collaboration, and societal advancement. Through research, knowledge-sharing, and outreach, we aim to push the boundaries of biotechnology for a better future.</p>
+            <a href="#join" class="mt-4 inline-block bg-yellow-500 text-black font-bold py-2 px-4 rounded">Join Biotechnika HBTU-K</a>
+        </div>
+        <!-- <div class="mt-6 md:mt-0">
+            <img src="images/clubImage.png" alt="Community Service Illustration" class="w-80 md:w-96">
+        </div> -->
+
+        <!-- News & Events  -->
+        <div class="bg-gradient-to-r from-purple-200 to-yellow-400 top-0 w-[70%] h-full max-w-2xl h-full mx-auto bg-white shadow-lg border border-2 border-black-800 p-4 rounded-lg overflow-hidden relative">
+            <h2 class="text-xl font-bold text-center text-black-900 mb-3">📢 News & Events</h2>
+        
+            <!-- Notification Box -->
+            <div class=" overflow-hidden relative group">
+                <ul class="space-y-3 scrolling-text group-hover:paused">
+                    <li>
+                        <a href="about.html" class="block text-red-600 font-medium hover:underline">
+                            🚀 Our new website is live! Check it out!
+                        </a>
+                    </li>
+                    <li>
+                        <a href="events/newsletter.pdf" class="block text-red-600 font-medium hover:underline">
+                            📅 Our newsletter 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="team.html" class="block text-red-600 font-medium hover:underline">
+                            🎉 Our New Team 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="block text-red-600 font-medium hover:underline">
+                            🏆 Mind & Molecules the BioTecnhika QUIZ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <style>
+        @keyframes scrollUp {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+        
+        /* Scroll Animation */
+        .scrolling-text {
+            animation: scrollUp 15s linear infinite;
+        }
+        
+        /* Stop Animation on Hover */
+        .group:hover .scrolling-text {
+            animation-play-state: paused !important;
+        }
+        </style>
+        
+        
+    </div>
+
+    <div class="bg-gray-100 py-10">
+        <!-- <div class="text-center">
+            <h1 class="text-4xl font-bold text-blue-900 cinzel-decorative-black mb-4">Our Team</h1>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                Meet our dedicated team of professionals who work tirelessly to achieve our goals and bring innovation to life.
+            </p>
+        </div> -->
+    
+        <!-- Teachers Info -->
+        <div class="flex justify-center mt-10">
+            <div class="bg-white shadow-lg rounded-lg p-6 w-[300px] text-center hover:scale-105 transition-all">
+                <img src="https://hbtu.ac.in/wp-content/uploads/2024/07/HBTU-website-photo-shamsher.jpg" alt="Team Leader" class="border-2 border-black rounded-full w-40 h-40 object-cover mx-auto">
+                <p class="text-lg font-bold text-blue-400 ">Chief Patron</p>
+                <h2 class="text-2xl font-bold text-blue-900 mt-4">Prof. Samsher</h2>
+                <p class="text-gray-600">Hon'ble Vice Chancellor HBTU, Kanpur, U.P. </p>
+            </div>
+        </div>
+    
+        <!-- Teachers Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 mt-10 px-6">
+            <!-- teachers card  -->
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center hover:scale-105 transition-all">
+                <img src="https://hbtu.ac.in/wp-content/uploads/2024/09/Photo_dparmar.jpg" alt="Member 1" class="border-2 border-black rounded-full  object-top w-32 h-32 object-cover mx-auto">
+                <p class="text-lg font-bold text-blue-400 ">Patron</p>
+                <h2 class="text-xl font-bold text-blue-900 mt-4">Prof. Dipteek Parmar</h2>
+                <p class="text-gray-600">Pro Vice Chancellor HBTU, Kanpur, U.P.</p>
+            </div>
+    
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center hover:scale-105 transition-all">
+                <img src="images/GLDevlani.png" alt="Member 2" class="border-2 border-black rounded-full object-top w-32 h-32 object-cover mx-auto">
+                <p class="text-lg font-bold text-blue-400 ">Patron</p>
+                <h2 class="text-xl font-bold text-blue-900 mt-4">Prof. G.L. Devnani</h2>
+                <p class="text-gray-600">Dean, SCOT, Hbtu, Kanpur, U.P.</p>
+            </div>
+    
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center hover:scale-105 transition-all">
+                <img src="images/LalitKumarSingh.png" alt="Member 3" class="border-2 border-black rounded-full object-top w-32 h-32 object-cover mx-auto">
+                <p class="text-lg font-bold text-blue-400 ">ChairPerson</p>
+                <h2 class="text-xl font-bold text-blue-900 mt-4">Prof. Lalit Kumar Singh</h2>
+                <p class="text-gray-600">HoD Biochemical Engg. HBTU, Kanpur, U.P.</p>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center hover:scale-105 transition-all">
+                <img src="images/MohitNigam.png" alt="Member 3" class="border-2 border-black rounded-full object-top w-32 h-32 object-cover mx-auto">
+                <p class="text-lg font-bold text-blue-400 ">Coordinator</p>
+                <h2 class="text-xl font-bold text-blue-900 mt-4">Mohit Nigam</h2>
+                <p class="text-gray-600">Pursuing Ph.D. in Biochemical Engineering, HBTU Kanpur, U.P.</p>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center hover:scale-105 transition-all">
+                <img src="images/PoojaSingh.png" alt="Member 3" class="border-2 border-black rounded-full object-top w-32 h-32 object-cover mx-auto">
+                <p class="text-lg font-bold text-blue-400 ">Coordinator</p>
+                <h2 class="text-xl font-bold text-blue-900 mt-4">Pooja Singh</h2>
+                <p class="text-gray-600">Pursuing Ph.D. in Biochemical Engineering, HBTU Kanpur, U.P.</p>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center hover:scale-105 transition-all">
+                <img src="images/HarshitSharma.png" alt="Member 3" class="border-2 border-black rounded-full object-top w-32 h-32 object-cover mx-auto">
+                <p class="text-lg font-bold text-blue-400 ">Secretary</p>
+                <h2 class="text-xl font-bold text-blue-900 mt-4">Harshit Sharma</h2>
+                <p class="text-gray-600">Pursuing B.Tech Biotechnology Engineering, HBTU Kanpur, U.P.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer"></div>
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading component:', error));
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            loadComponent("header", "header.html");
+            loadComponent("footer", "footer.html");
+        });
+    </script>
+    <script>
+        let currentIndex = 0;
+        const slider = document.getElementById("slider");
+        const slides = document.querySelectorAll("#slider img");
+        const totalSlides = slides.length;
+
+        // **Fix for Firefox**: Ensure `#slider` width is set correctly
+        slider.style.width = `${totalSlides * 100}%`;
+        slides.forEach(slide => slide.style.width = `${100 / totalSlides}%`);
+
+        function showSlide(index) {
+            if (index >= totalSlides) currentIndex = 0;
+            else if (index < 0) currentIndex = totalSlides - 1;
+            else currentIndex = index;
+
+            slider.style.transform = `translateX(-${currentIndex * (100 / totalSlides)}%)`;
+        }
+
+        document.getElementById("next").addEventListener("click", () => showSlide(currentIndex + 1));
+        document.getElementById("prev").addEventListener("click", () => showSlide(currentIndex - 1));
+
+        // Auto Slide every 6 seconds
+        setInterval(() => showSlide(currentIndex + 1), 6000);
+    </script>
+ 
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <title>Biotechnika Club HBTU</title>
+    
+</head>
+<!-- <body class="bg-gray-100 p-10"> -->
+<body class="bg-white-800 text-white font-sans">
+    <div id="header"></div>
+    
+    <div class="container mx-auto px-6 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="images/Club.png" alt="Title 1" class="w-full h-60 object-cover transform transition-transform duration-300 hover:scale-110">
+                </div>
+                <div class="p-4 text-center bg-gray-200">
+                    <a href="about.html" class="text-xl font-bold text-blue-600 hover:underline">Biotechnika Club Hbtu</a>
+                    <p class="text-gray-600 mt-2">Not Me, But You</p>
+                </div>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="images/clubImage2.jpg" alt="Title 2" class="w-full h-60 object-cover transform transition-transform duration-300 hover:scale-110">
+                </div>
+                <div class="p-4 text-center bg-gray-200">
+                    <a href="page2.html" class="text-xl font-bold text-blue-600 hover:underline">Title 2</a>
+                    <p class="text-gray-600 mt-2">Short description  the image.</p>
+                </div>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="images/clubImage3.png" alt="Title 3" class="w-full h-60 object-cover transform transition-transform duration-300 hover:scale-110">
+                </div>
+                <div class="p-4 text-center bg-gray-200">
+                    <a href="page3.html" class="text-xl font-bold text-blue-600 hover:underline">Title 3</a>
+                    <p class="text-gray-600 mt-2">Short description about the image.</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="images/clubImage3.png" alt="Title 3" class="w-full h-60 object-cover transform transition-transform duration-300 hover:scale-110">
+                </div>
+                <div class="p-4 text-center bg-gray-200">
+                    <a href="page3.html" class="text-xl font-bold text-blue-600 hover:underline">Title 3</a>
+                    <p class="text-gray-600 mt-2">Short description about the image.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    </pre>
+
+    <div id="footer"></div>
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading component:', error));
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            loadComponent("header", "header.html");
+            loadComponent("footer", "footer.html");
+        });
+    </script>
+</body>
+</html>
