@@ -1,0 +1,96 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotechnika Club HBTU</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&family=Sigmar&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading component:', error));
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            loadComponent("header", "header.html");
+            loadComponent("footer", "footer.html");
+        });
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-lg font-bold">Brand</a>
+            
+            <!-- Mobile Menu Button -->
+            <button onclick="openMenu()" id="menu-btn" class="text-white md:hidden bg-gray-700 px-3 py-1 rounded">☰</button>
+        </div>
+    </nav>
+
+    <!-- Sliding Sidebar Menu -->
+    <div id="mobile-menu" class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <button onclick="closeMenu()" id="close-btn" class="absolute top-4 right-4 text-gray-700">✕</button>
+        <ul class="mt-10 space-y-4 p-4">
+            <li><a href="#" class="block p-2 text-gray-800 hover:bg-gray-200 rounded">Home</a></li>
+            <li><a href="#" class="block p-2 text-gray-800 hover:bg-gray-200 rounded">About</a></li>
+            <li><a href="#" class="block p-2 text-gray-800 hover:bg-gray-200 rounded">Services</a></li>
+            <li><a href="#" class="block p-2 text-gray-800 hover:bg-gray-200 rounded">Contact</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function openMenu(){
+            const mobileMenu = document.getElementById("mobile-menu");
+            mobileMenu.classList.remove("-translate-x-full");
+        }
+        function closeMenu(){
+            const mobileMenu = document.getElementById("mobile-menu");
+                mobileMenu.classList.add("-translate-x-full");
+        }
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     const menuBtn = document.getElementById("menu-btn");
+        //     const closeBtn = document.getElementById("close-btn");
+        //     const mobileMenu = document.getElementById("mobile-menu");
+
+        //     if (!menuBtn || !closeBtn || !mobileMenu) {
+        //         console.error("Menu elements not found.");
+        //         return;
+        //     }
+
+        //     menuBtn.addEventListener("click", () => {
+        //         console.log("Menu opened"); // Debugging
+        //         mobileMenu.classList.remove("-translate-x-full");
+        //     });
+
+        //     closeBtn.addEventListener("click", () => {
+        //         console.log("Menu closed"); // Debugging
+        //         mobileMenu.classList.add("-translate-x-full");
+        //     });
+        // });
+    </script>
+
+</body>
+</html>
