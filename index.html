@@ -16,93 +16,106 @@
 </head>
 <body class=" bg-white-800 text-white font-sans">
     <div id="header"></div>
-
-    <div class="relative w-full h-full bg-gradient-to-r from-green-200 to-purple-400 overflow-hidden">
+    
+    <div class="relative w-full bg-gradient-to-r from-green-200 to-purple-400 overflow-hidden">
         <!-- Carousel Wrapper -->
-        <div id="carousel" class="relative flex w-full h-[calc(100vh-80px)] transition-transform duration-700">
-            <img src="images/intro.png" class="w-full h-full object-contain flex-shrink-0" alt="Slide 1">
-            <img src="images/clubImage.png" class="w-full h-full object-contain flex-shrink-0" alt="Slide 2">
-            <img src="images/clubImage2.jpg" class="w-full h-full object-contain flex-shrink-0" alt="Slide 3">
-            <img src="images/clubImage3.png" class="w-full h-full object-contain flex-shrink-0" alt="Slide 4">
-        </div>
+        <div id="carousel-container" class="relative w-full max-h-[80vh] flex items-center justify-center overflow-hidden">
+            <div id="carousel" class="flex w-full transition-transform duration-700">
+                <img src="images/newClubImage.jpg" class="w-full max-h-[80vh] object-cover flex-shrink-0" alt="Slide 1">
+                <img src="images/newClubImage2.jpg" class="w-full max-h-[80vh] object-cover flex-shrink-0" alt="Slide 2">
+                <img src="images/Department.jpg" class="w-full max-h-[80vh] object-cover flex-shrink-0" alt="Slide 3">
+                <img src="images/MindAndMoleculeQuiz.jpg" class="w-full max-h-[80vh] object-cover flex-shrink-0" alt="Slide 4">
+            </div>
     
-        <!-- Navigation Buttons -->
-        <button id="prevBtn"
-            class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white">
-            ❮
-        </button>
-        <button id="nextBtn"
-            class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white">
-            ❯
-        </button>
+            <!-- Navigation Buttons -->
+            <button id="prevBtn"
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white z-10">
+                ❮
+            </button>
+            <button id="nextBtn"
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white z-10">
+                ❯
+            </button>
     
-        <!-- Indicators -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-            <button class="indicator w-3 h-3 rounded-full bg-white" data-slide="0"></button>
-            <button class="indicator w-3 h-3 rounded-full bg-gray-400" data-slide="1"></button>
-            <button class="indicator w-3 h-3 rounded-full bg-gray-400" data-slide="2"></button>
-            <button class="indicator w-3 h-3 rounded-full bg-gray-400" data-slide="3"></button>
+            <!-- Indicators -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                <button class="indicator w-3 h-3 rounded-full bg-white" data-slide="0"></button>
+                <button class="indicator w-3 h-3 rounded-full bg-gray-400" data-slide="1"></button>
+                <button class="indicator w-3 h-3 rounded-full bg-gray-400" data-slide="2"></button>
+                <button class="indicator w-3 h-3 rounded-full bg-gray-400" data-slide="3"></button>
+            </div>
         </div>
     </div>
     
-    <script>
+    
+    
+     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const carousel = document.getElementById("carousel");
-            const images = carousel.children;
-            const totalSlides = images.length;
-            let currentSlide = 0;
-    
-            const indicators = document.querySelectorAll(".indicator");
             const prevBtn = document.getElementById("prevBtn");
             const nextBtn = document.getElementById("nextBtn");
-    
+            const indicators = document.querySelectorAll(".indicator");
+            const totalSlides = carousel.children.length;
+            let currentIndex = 0;
+        
             function updateCarousel() {
-                carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-                indicators.forEach((dot, index) => {
-                    dot.classList.toggle("bg-white", index === currentSlide);
-                    dot.classList.toggle("bg-gray-400", index !== currentSlide);
+                const translateValue = -currentIndex * 100 + "%";
+                carousel.style.transform = `translateX(${translateValue})`;
+                
+                // Update indicator colors
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle("bg-white", index === currentIndex);
+                    indicator.classList.toggle("bg-gray-400", index !== currentIndex);
                 });
             }
-    
-            prevBtn.addEventListener("click", () => {
-                currentSlide = (currentSlide === 0) ? totalSlides - 1 : currentSlide - 1;
-                updateCarousel();
-            });
-    
+        
             nextBtn.addEventListener("click", () => {
-                currentSlide = (currentSlide === totalSlides - 1) ? 0 : currentSlide + 1;
+                currentIndex = (currentIndex + 1) % totalSlides;
                 updateCarousel();
             });
-    
-            indicators.forEach((dot) => {
-                dot.addEventListener("click", (e) => {
-                    currentSlide = parseInt(e.target.getAttribute("data-slide"));
+        
+            prevBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            });
+        
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener("click", () => {
+                    currentIndex = index;
                     updateCarousel();
                 });
             });
-    
-            // Auto-slide every 4 seconds
+        
+            // Auto-slide every 5 seconds
             setInterval(() => {
-                currentSlide = (currentSlide + 1) % totalSlides;
+                currentIndex = (currentIndex + 1) % totalSlides;
                 updateCarousel();
-            }, 4000);
+            }, 5000);
         });
-    </script>
-    
+        </script>
+        
 
     <!-- . -->
     <div class="bg-gradient-to-r from-green-200 to-purple-400 text-black bg-white grid grid-cols-1 sm:grid-cols-2 items-center justify-center p-10 h-full w-full pt-[16px]">
         <div class="max-w-lg justify-center items-center grid grid-cols-1" id="dynamic-content">
-            <h1 class="text-4xl font-bold text-blue-900 text-center">Our Motto<br>"Innovate, Integrate, Elevate"</h1>
-            <p class="mt-4 text-lg text-center text-justify text-gray-700">Biotechnika Club HBTU, launched in 2025, upholds the motto "Innovate, Integrate, Elevate," symbolizing our commitment to scientific innovation, interdisciplinary collaboration, and societal advancement. Through research, knowledge-sharing, and outreach, we aim to push the boundaries of biotechnology for a better future.</p>
-            <a href="#join" class="mt-4 inline-block bg-yellow-500 w-[60%] sm:w-[100%] text-black text-center font-bold py-2 px-4 rounded">Join Biotechnika HBTU-K</a>
+            <h1 class="text-2xl sm:text-3xl font-bold text-blue-900 text-center">Our Motto<br> 
+                <span class="text-orange-500">"Innovate,</span> 
+                <span class="text-white"> Inspire,</span>
+                <span class="text-green-500"> Trasnform."</span>
+            </h1>
+            <p class="mt-4 text-lg text-justify text-gray-700">Biotechnika Club HBTU, launched in 2025, upholds the motto "Innovate, Integrate, Elevate," symbolizing our commitment to scientific innovation, interdisciplinary collaboration, and societal advancement. Through research, knowledge-sharing, and outreach, we aim to push the boundaries of biotechnology for a better future.</p>
+            <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeSXkxrXZNpoIUfU_gjSooI522cusDckI0fNXoEJwtLJ5glCg/viewform" class="items-center" >
+                <span class="inline-block mt-4 bg-yellow-500 w-[60%] sm:w-[100%] text-black text-center font-bold py-2 px-4 rounded">
+                    Join Biotechnika HBTU-K
+                </span>
+            </a>
         </div>
         <!-- <div class="mt-6 md:mt-0">
             <img src="images/clubImage.png" alt="Community Service Illustration" class="w-80 md:w-96">
         </div> -->
 
         <!-- News & Events  -->
-        <div class=" bg-gradient-to-r from-purple-200 to-yellow-400 top-0 w-[70%] h-full max-w-2xl h-full mx-auto bg-white shadow-lg border border-black-800 p-4 rounded-lg overflow-hidden relative">
+        <div class="mt-4 bg-gradient-to-r from-purple-200 to-yellow-400 top-0 w-[70%] h-full max-w-2xl h-full mx-auto bg-white shadow-lg border border-black-800 p-4 rounded-lg overflow-hidden relative">
             <h2 class="text-xl font-bold text-center text-black-900 mb-3">📢 News & Events</h2>
         
             <!-- Notification Box -->
